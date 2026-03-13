@@ -8,7 +8,7 @@ public class Cliente {
     private Cuenta cuenta;
 
 
-    public Cliente(String id, String nombre, String numeroDocumento, Cuenta cuenta) {
+    public Cliente(String id, String nombre, String numeroDocumento, Cuenta cuenta, String number) {
         this.id = id;
         this.nombre = nombre;
         this.numeroDocumento = numeroDocumento;
@@ -20,5 +20,14 @@ public class Cliente {
     public String getNombre() { return nombre; }
     public String getNumeroDocumento() { return numeroDocumento; }
     public Cuenta getCuenta() { return cuenta; }
+
+    public void cambiarClave(String claveActual, String nuevaClave) {
+    }
+
+    public boolean cuentaBloqueada() {
+    }
+
+    public boolean validarClave(String clave) {
+    }
 }
 

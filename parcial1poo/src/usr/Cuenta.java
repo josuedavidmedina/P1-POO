@@ -9,7 +9,7 @@ public class Cuenta {
     double saldo;
     public static final double SALDO_INICIAL = 435.000;
 
-    public Cuenta(String numeroCuenta, String tipoCuenta) {
+    public Cuenta(String numeroCuenta, TipoCuenta tipoCuenta) {
         this.numeroCuenta = numeroCuenta;
         this.tipoCuenta = tipoCuenta;
         this.saldo = SALDO_INICIAL;
