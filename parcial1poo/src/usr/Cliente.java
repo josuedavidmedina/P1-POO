@@ -16,5 +16,9 @@ public class Cliente {
     }
 
 
-
+    public String getId() { return id; }
+    public String getNombre() { return nombre; }
+    public String getNumeroDocumento() { return numeroDocumento; }
+    public Cuenta getCuenta() { return cuenta; }
 }
+

@@ -7,7 +7,7 @@ public class Cuenta {
     public String numeroCuenta;
     public String tipoCuenta;
     double saldo;
-    public static final double SALDO_INICIAL = 435_000.0;
+    public static final double SALDO_INICIAL = 435.000;
 
     public Cuenta(String numeroCuenta, String tipoCuenta) {
         this.numeroCuenta = numeroCuenta;
@@ -43,7 +43,8 @@ public class Cuenta {
         return this.saldo;
     }
 
-    // ── Getters ──────────────────────────────────────────────
+
+
     public String getNumeroCuenta() { return numeroCuenta; }
     public String getTipoCuenta() { return tipoCuenta; }
     public double getSaldo() { return saldo; }
