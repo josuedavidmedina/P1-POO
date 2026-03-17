@@ -1,8 +1,13 @@
 package usr;
 
-import operaciones.*;
+import operaciones.Comprobante;
+import operaciones.Retiro;
+import operaciones.ConsultaSaldo;
 
-public class    Cajero {
+/**
+ * Representa el cajero automático con todas sus restricciones de negocio.
+ */
+public class Cajero {
 
     private final String idCajero;
     private final String ubicacion;
@@ -18,34 +23,31 @@ public class    Cajero {
         this.retirosHoy = 0;
     }
 
-
     public boolean validarRetiro(double monto, double saldoDisponible) {
         if (retirosHoy >= MAX_RETIROS) {
-            System.out.println("  Ha alcanzado el límite de " + MAX_RETIROS + " retiros por día.");
+            System.out.println("  ❌ Ha alcanzado el límite de " + MAX_RETIROS + " retiros por día.");
             return false;
         }
         if (monto < RETIRO_MINIMO) {
-            System.out.printf("  El retiro mínimo es $%,.0f%n", RETIRO_MINIMO);
+            System.out.printf("  ❌ El retiro mínimo es $%,.0f%n", RETIRO_MINIMO);
             return false;
         }
         if (monto > RETIRO_MAXIMO) {
-            System.out.printf("  El retiro máximo es $%,.0f%n", RETIRO_MAXIMO);
+            System.out.printf("  ❌ El retiro máximo es $%,.0f%n", RETIRO_MAXIMO);
             return false;
         }
         if (monto > saldoDisponible) {
-            System.out.printf("  Saldo insuficiente. Disponible: $%,.0f%n", saldoDisponible);
+            System.out.printf("  ❌ Saldo insuficiente. Disponible: $%,.0f%n", saldoDisponible);
             return false;
         }
         return true;
     }
 
-
     public void registrarOperacion() {
         retirosHoy++;
     }
 
-
-    public  Comprobante procesarRetiro(double monto, Cuenta cuenta) {
+    public Comprobante procesarRetiro(double monto, Cuenta cuenta) {
         if (!validarRetiro(monto, cuenta.consultarSaldo())) {
             return null;
         }
@@ -63,9 +65,8 @@ public class    Cajero {
         return consulta.generarComprobante();
     }
 
-
-    public String getIdCajero()   { return idCajero; }
-    public String getUbicacion()  { return ubicacion; }
-    public int getRetirosHoy()    { return retirosHoy; }
+    public String getIdCajero()      { return idCajero; }
+    public String getUbicacion()     { return ubicacion; }
+    public int getRetirosHoy()       { return retirosHoy; }
     public int getRetirosRestantes() { return MAX_RETIROS - retirosHoy; }
 }

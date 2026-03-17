@@ -3,7 +3,7 @@ package operaciones;
 import usr.Cuenta;
 import java.time.LocalDateTime;
 
-public class Operacion {
+public abstract class Operacion {
 
     protected String tipoOperacion;
     protected double monto;
@@ -19,9 +19,10 @@ public class Operacion {
         this.fechaHoraOperacion = LocalDateTime.now();
     }
 
+    public abstract boolean ejecutar();
+    public abstract Comprobante generarComprobante();
 
-
-    public String getTipoOperacion() { return tipoOperacion; }
-    public double getMonto() { return monto; }
+    public String getTipoOperacion()             { return tipoOperacion; }
+    public double getMonto()                     { return monto; }
     public LocalDateTime getFechaHoraOperacion() { return fechaHoraOperacion; }
 }
